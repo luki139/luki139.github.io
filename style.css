@@ -1,0 +1,28 @@
+.backgroundSlideShow {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -99;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+#backgroundSlideShowOuter {
+    position: absolute;
+    z-index: -100;
+    background-color: black;
+}
+
+.backblur {
+    backdrop-filter: blur(6px);
+    background-color: black;
+    opacity: 0.3;
+}
+
+html {
+    scroll-behavior: smooth;
+}
