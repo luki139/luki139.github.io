@@ -26,3 +26,20 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Important part */
+.modal-dialog {
+    overflow-y: initial !important
+}
+
+.modal-body-img {
+    height: 70vh;
+    overflow-y: auto;
+}
+
+#Thumbnail {
+    display: block;
+    height: 40vh;
+    max-width: 30vw;
+    object-fit: scale-down;
+}

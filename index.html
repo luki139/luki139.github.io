@@ -41,22 +41,51 @@
             </div>
         </div>
     </div>
-    <div class="bg-dark" style="height: 100vh" id="scrollspyHeading2">
-        <div class="d-flex flex-column align-items-center justify-content-center h-100 w-100">
-            <div class='p-5 mb-4 container bg-light rounded d-flex'>
-                <div class="d-flex flex-column justify-content-center w-50">
+    <!-- Modal -->
+    <div class="modal fade" id="selectImgModal" tabindex="-1" role="dialog" aria-labelledby="selectImgModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Select an Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-body-img" id="selectImgBody">
+                    ...
+                </div>
+                <div class="modal-body" id="selectImgChoice">
+                    Currently Selected:
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark" id="scrollspyHeading2" style="min-height: 100vh;">
+        <div class="d-flex flex-column align-items-center justify-content-center p-5">
+            <div
+                class='p-5 mb-4 container bg-light rounded d-flex justify-content-around flex-lg-row flex-column flex-lg-row'>
+                <div class="d-flex flex-column justify-content-center p-3" style="max-width: 100%">
                     <h1 class="fw-bold"> Select your photo </h1>
                     <p> Click the button below to choose one of our top-quality meme templates</p>
-                    <img src="https://bibliotekant.pl/wp-content/uploads/2021/04/placeholder-image-768x576.png">
-                    <button type="button" class="btn btn-primary btn-lg">Click !</button>
+                    <img src="https://bibliotekant.pl/wp-content/uploads/2021/04/placeholder-image-768x576.png"
+                        id="Thumbnail">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                        data-target="#selectImgModal" onclick="onSelectImgClick()">
+                        Click Me!
+                    </button>
                 </div>
-                <div class="p-5 mb-4 ml-5">
+                <div id="text-container" class="d-flex flex-column justify-content-around" style="min-width: 40%;">
                     <div class="d-flex flex-column justify-content-center">
                         <h1 class="py-2 fw-bold">Input top text</h1>
                         <textarea rows="2"></textarea>
                     </div>
-                    <div style="height: 10vh">
-
+                    <div class="d-flex flex-column justify-content-center">
+                        <h1 class="py-2">Input bottom text</h1>
+                        <textarea rows="2"></textarea>
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                         <h1 class="py-2">Input bottom text</h1>
@@ -64,8 +93,31 @@
                     </div>
                 </div>
             </div>
-            <div class="display-2 mb-4 text-white">or</div>
-            <button class="btn btn-warning"> Generate Random</button>
+            <div class="d-flex align-items-center">
+                <div>
+                    <button class="btn btn-warning m-5" onclick="generateMeme()"> Generate</button>
+                </div>
+                <div class="display-2 mb-4 text-white">or</div>
+                <div>
+                    <button class="btn btn-warning m-5"> Generate Random</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark" id="scrollspyHeading3" style="display: none; min-height: 100vh;">
+        <div class="d-flex flex-column align-items-center justify-content-center p-5">
+            <div class='p-5 mb-4 container bg-info rounded d-flex align-items-center flex-column'>
+                <h1 class="py-2 fw-bold"> Here's your mememe </h1>
+                <img src="https://bibliotekant.pl/wp-content/uploads/2021/04/placeholder-image-768x576.png" alt=""
+                    id="finalImage" style="max-height: 60vh">
+            </div>
+            <div class="d-flex justify-content-around">
+
+                <a type="button" class="btn btn-primary btn-lg mr-5" href="#scrollspyHeading2">
+                    Go back</a>
+                <a id="downloadButton" type="button" class="btn btn-warning btn-lg ml-5" href="" download>
+                    Download</a>
+            </div>
         </div>
     </div>
 
@@ -77,6 +129,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="httpapi.js"></script>
     <script src="script.js"></script>
 </body>
 
